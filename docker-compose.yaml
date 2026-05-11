@@ -1,4 +1,10 @@
 services:
+  express-app:
+    image: niriaz/express-app
+    container_name: express-app
+    ports:
+      - "127.0.0.1:8080:8080"
+
   watchtower:
     image: nickfedor/watchtower
     environment:
@@ -6,4 +12,4 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     container_name: watchtower
-    command: niriaz/express-app
+    command: express-app
